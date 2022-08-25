@@ -1,6 +1,6 @@
 package tv.zeekdageek.missingtweaks.common;
 
-import net.minecraft.command.ICommand;
+import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.effect.EntityLightningBolt;
@@ -9,11 +9,12 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
 import tv.zeekdageek.missingtweaks.MissingTweaks;
 
+import java.util.Arrays;
 import java.util.List;
 
-public class CommandHandler implements ICommand
+public class CommandHandler extends CommandBase
 {
-    private String CommandName;
+    private final String CommandName;
 
     public CommandHandler(String assignedName) {
         if (assignedName.isEmpty()) {
@@ -24,18 +25,23 @@ public class CommandHandler implements ICommand
     }
 
     @Override
+    public int getRequiredPermissionLevel() {
+        return 3;
+    }
+
+    @Override
     public String getCommandName() {
         return CommandName;
     }
 
     @Override
-    public String getCommandUsage(ICommandSender p_71518_1_) {
-        return null;
+    public String getCommandUsage(ICommandSender sender) {
+        return "/missingtweaks [smite]";
     }
 
     @Override
     public List getCommandAliases() {
-        return null;
+        return Arrays.asList("mt");
     }
 
     @Override

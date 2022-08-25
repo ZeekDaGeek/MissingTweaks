@@ -3,8 +3,6 @@ package tv.zeekdageek.missingtweaks;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Formatter;
-
 public class LoggerMT
 {
     public static Logger logger = LogManager.getLogger(MissingTweaks.MODID);
@@ -13,7 +11,7 @@ public class LoggerMT
 
     /**
      * General log helper.
-     * @param message
+     * @param message message
      */
     public static void log(String message) {
         logger.info(message);
@@ -30,10 +28,10 @@ public class LoggerMT
         logger.info(message);
     }
 
-    public static void vlog(String message, Object... args) {
+    public static void vlog(String message, Object ... args) {
         if (!verbose)
             return;
 
-        logger.info(new Formatter().format(message, args).toString());
+        logger.info(message, args);
     }
 }

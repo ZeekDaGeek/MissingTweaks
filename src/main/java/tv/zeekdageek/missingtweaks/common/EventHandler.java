@@ -1,5 +1,3 @@
 package tv.zeekdageek.missingtweaks.common;
 
-public class EventHandler
-{
-}
+public class EventHandler {}
